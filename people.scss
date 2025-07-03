@@ -1,0 +1,139 @@
+.people{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  padding: 40px;
+
+  overflow: hidden;
+  transition: transform 1s ease;
+  position: relative; 
+
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+  .person {
+  background: white;
+  border-radius: 12px;
+  overflow: visible;
+  transition: transform 1s ease;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+
+.photo,
+.person--photo {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 20px auto;
+  max-width: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1s ease;
+    border-radius: 50%;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+
+.rank{
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  color: $rank-color;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.details{
+  padding: 0;
+  margin-top: 15px;
+}
+
+
+.name{
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: $text-color;
+  text-decoration: none;
+  margin-bottom: 8px; 
+}
+
+
+.extra{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.sport{
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 100%;
+  color: black;
+  flex: 1;
+}
+
+
+.pay{
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 100%;
+  
+  &::before {
+    content: '$';
+  }
+  
+  &::after {
+    content: 'M';
+    font-size: 18px;
+    margin-left: 2px;
+  }
+}
+
+.photo:hover{
+  &::after {
+    content: '';
+    position: absolute;
+    transition: opacity 1s ease;
+    opacity: 0;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+}
